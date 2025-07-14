@@ -1,0 +1,10 @@
+Flask>=2.0
+pandas>=2.0,<3.0
+scikit-learn==1.6.1
+joblib>=1.2
+gunicorn
+setuptools>=65.5.1
+wheel
+numpy>=1.23
+matplotlib>=3.5
+seaborn>=0.11
