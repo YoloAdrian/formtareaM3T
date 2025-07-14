@@ -63,9 +63,9 @@
             .then(res => res.json())
             .then(data => {
                 if (data.prediction === 1) {
-                    document.getElementById('resultado').innerText = 'Probablemente sobreviviría';
+                    document.getElementById('resultado').innerText = 'El resultado es: sobreviviría ✅';
                 } else {
-                    document.getElementById('resultado').innerText = 'Probablemente no sobreviviría';
+                    document.getElementById('resultado').innerText = 'El resultado es: no sobreviviría ❌';
                 }
             })
             .catch(err => {
