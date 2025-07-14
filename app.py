@@ -54,10 +54,13 @@ def predict():
         # 5) Escalar, PCA y predecir
         scaled = scaler.transform(new_data)
         pca_data = pca.transform(scaled)
-        pred = model.predict(pca_data)
+        pred = model.predict(pca_data)[0]
 
-        # 6) Devolver respuesta
-        return jsonify({'Supervivencia': 'Sí' if pred[0] == 1 else 'No'})
+        # 6) Devolver respuesta con clave 'prediction' para el frontend
+        return jsonify({
+            'prediction': int(pred),
+            'Supervivencia': 'Sí' if pred == 1 else 'No'
+        })
 
     except Exception as e:
         app.logger.error(f"Error en predicción: {str(e)}")
@@ -65,4 +68,3 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
